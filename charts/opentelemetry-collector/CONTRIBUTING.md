@@ -13,8 +13,8 @@
 
 On pull requests against the `main` branch a [`kind`](https://github.com/kubernetes-sigs/kind) cluster is started and [`chart-testing`](https://github.com/helm/chart-testing) is used to sequentially install the value files `charts/opentelemetry-collector/ci/*-values.yaml` for verification.
 
-The same can be done locally by running
+The CI can be ran locally with:
 ```bash
 kind create cluster
-ct install --charts charts/opentelemetry-collector
+ct install --charts charts/opentelemetry-collector --helm-extra-args "--timeout 600s"
 ```
